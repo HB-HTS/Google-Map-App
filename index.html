@@ -1,0 +1,52 @@
+
+<html>
+<head>
+  <link rel="stylesheet" href="app.css" />
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    #map {
+      width: 650px;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>GoogleMap</h1>
+  <!-- <div id="phoenix-chart"></div> -->
+  <!-- domo.js optional utils -->
+  <div id="map"></div>
+  <script src="domo.js"></script>
+  <script src="domoPhoenix.js"></script>
+  <script>
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: { // 地図の中心を指定
+          lat: 35.672298, // 緯度
+          lng: 139.7013333 // 経度
+        },
+        zoom: 14 // 地図のズーム, 
+      });
+//Datasetからデータ取得
+domo.get('/data/v1/mapdata').then(function(data){
+        for(var i in data){
+          var marker = new google.maps.Marker({ 
+            position: {lat: data[i].lat, lng: data[i].lng},
+            map: map,
+            title: data[i].name
+        });
+        infoWindow = new google.maps.InfoWindow({ 
+          content: data[i].name
+        });
+        infoWindow.open(map, marker); 
+        }
+      });
+    }
+  </script>
+  <!-- This version of domoPhoenix DOES NOT INCLUDE bundled map definitions -->
+  <script src="app.js"></script>
+  <script defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTj_scO2gLohXg6vDKwvB7FyoQaKkUqHM&callback=initMap">
+  </script>
+</body>
+</html>

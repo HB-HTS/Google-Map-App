@@ -1,0 +1,37 @@
+{
+  "name": "gmap4",
+  "version": "1.0.0",
+  "size": {
+    "width": 3,
+    "height": 2
+  },
+  "mapping": [
+    {
+      "alias": "mapdata",
+      "dataSetId": "d9526487-d949-4d95-bf0f-8236d12b06ce",
+      "fields": [
+        {
+          "alias": "name",
+          "columnName": "name",
+          "fieldType": null,
+          "beastModeName": null
+        },
+        {
+          "alias": "lat",
+          "columnName": "lat",
+          "fieldType": null,
+          "beastModeName": null
+        },
+        {
+          "alias": "lng",
+          "columnName": "lon",
+          "fieldType": null,
+          "beastModeName": null
+        }
+      ],
+      "dql": null
+    }
+  ],
+  "fileName": "manifest.json",
+  "id": "7bbf2ada-16a3-4a23-af98-7d97174cbe97"
+}
